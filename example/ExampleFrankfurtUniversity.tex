@@ -1,10 +1,8 @@
 \documentclass[english]{beamer}
 %\documentclass[aspectratio=169]{beamer}
-%\usepackage{times}
 %\usepackage{amsmath}
 %\usepackage{color}
 %\usepackage{amssymb}
-%\usepackage{pgf}
 \usepackage{rotating}
 \usepackage{verbatim}
 \usepackage{latexsym}
@@ -24,17 +22,24 @@
 \usepackage[english]{babel}
 
 
-\usetheme{FrankfurtUniversity}
+\usetheme[fb2]{FrankfurtUniversity}
+%\usetheme{FrankfurtUniversity}
 
 
-\title[Example]{Theme “FrankfurtUniversity”}
-\subtitle{Example Slide Set}
+\title[Example]{Example Slide Set}
+\subtitle{\LaTeX\ beamer theme “FrankfurtUniversity”}
 \author[Godehardt]{Prof.~Dr.~Eicke Godehardt}
 \institute{Frankfurt University of Applied Sciences\\
            Faculty of Computer Science and Engineering\\
            \texttt{godehardt@fb2.fra-uas.de}}
-\date{October 20, 2014}
+\date{December 13, 2014}
 
+
+% you can change the default border sizes
+%\setbeamersize{text margin left=1.2em}
+%\setbeamersize{text margin right=1.2em}
+%\setbeamersize{sidebar width right=0.cm}
+%\setbeamersize{sidebar width left=0cm}
 
 
 \begin{document}
@@ -58,12 +63,13 @@ Roy Carlson
 
 \begin{frame}
    \frametitle{Agenda}
-   \tableofcontents[hideallsubsections]
+   \tableofcontents
+%   \tableofcontents[hideallsubsections]
 \end{frame}
 
 % -----------------------------------------------------------------------------
 
-\section{Content}
+\section{Normal Slide}
 
 \begin{frame}[fragile]
  \frametitle{Example of Normal Slide}
@@ -76,6 +82,44 @@ Roy Carlson
       \item\dots
      \end{itemize}
   \end{itemize}
+\end{frame}
+
+
+
+\section{Table}
+\subsection{Example of a Table}
+
+\begin{frame}
+ \frametitle{Example of a Table}
+ \framesubtitle{Tables in Beamer}
+\begin{table}[ht]
+ \begin{tabular}{|l|r|} \hline
+ \textbf{Programming Language}     & \textbf{LOC/FP}  \\
+ \hline \hline
+ Assembly Language		&     320      \\ 
+ C					&     128      \\
+ COBOL				&     106      \\
+ FORTRAN			&     106      \\
+ Pascal				&       90      \\
+ C++					&       64      \\  
+ Ada95				&       53      \\
+ Visual Basic			&       32      \\
+ Smalltalk				&       22      \\
+ SQL					&       12      \\\hline
+ \end{tabular}
+ \caption{Relationship between LOC and FP}
+\end{table}
+\end{frame}
+
+
+
+\section{Block}
+
+\begin{frame}
+ \frametitle{Using the \texttt{\textbackslash block} command}
+\begin{block}{Title of Box}
+Content of Box!
+\end{block}
 \end{frame}
 
 

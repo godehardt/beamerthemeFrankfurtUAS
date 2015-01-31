@@ -1,6 +1,6 @@
 % Copyright 2014 by Eicke Godehardt
 %
-% This file is based on the original themes of LaTeX beamer 
+% This file is based on the original themes of LaTeX beamer
 % style and may be distributed and/or modified
 %
 % 1. under the LaTeX Project Public License, version 1.3c
@@ -8,7 +8,25 @@
 % 2. under the GNU Public License, Version 2 or any later
 %    version published by the Free Software Foundation.
 
+\ProvidesPackage{beamerthemeFrankfurtUniversity}
+
 \mode<presentation>
+
+\definecolor{FrankfurtUniversityColor}{RGB}{45,137,204}
+
+\DeclareOptionBeamer{fb1}{
+  \definecolor{FrankfurtUniversityColor}{RGB}{124,128,52}
+}
+\DeclareOptionBeamer{fb2}{
+  \definecolor{FrankfurtUniversityColor}{RGB}{255,158,27}
+}
+\DeclareOptionBeamer{fb3}{
+  \definecolor{FrankfurtUniversityColor}{RGB}{196,213,42}
+}
+\DeclareOptionBeamer{fb4}{
+  \definecolor{FrankfurtUniversityColor}{RGB}{204,31,47}
+}
+\ProcessOptionsBeamer
 
 %\useoutertheme{default}
 %\useoutertheme[subsection=false]{smoothbars}
@@ -25,10 +43,10 @@
 
 \setbeamertemplate{headline}{%
   \ifnum\insertpagenumber=1%
-    {\hfill\includegraphics[width=3cm]{Logo}\hspace{2mm}\mbox{}}%
+    {\hfill\includegraphics[width=3cm]{FRA-UAS_Logo.pdf}\hspace{2mm}\mbox{}}%
     \vspace{-4mm}%
   \else%
-    {\hfill\includegraphics[width=2.4cm]{Logo}\hspace{3.3mm}\mbox{}}%
+    {\hfill\includegraphics[width=2.4cm]{FRA-UAS_Logo.pdf}\hspace{3.3mm}\mbox{}}%
 %    \vskip5pt\insertnavigation{12.75cm}\vskip5pt
   \fi%
 }
@@ -90,6 +108,12 @@
 }
 
 \setbeamertemplate{navigation symbols}{}
+
+
+\setbeamersize{text margin left=1.2em}
+\setbeamersize{text margin right=1.2em}
+\setbeamersize{sidebar width right=0.cm}
+\setbeamersize{sidebar width left=0cm}
 
 \mode
 <all>
