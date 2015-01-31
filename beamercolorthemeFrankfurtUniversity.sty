@@ -1,0 +1,52 @@
+% Copyright 2014 by Eicke Godehardt
+%
+% This file is based on the original themes of LaTeX beamer 
+% style and may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License, version 1.3c
+%    or (at your option) any later version and/or
+% 2. under the GNU Public License, Version 2 or any later
+%    version published by the Free Software Foundation.
+
+\mode<presentation>
+
+\definecolor{darkblue}{rgb}{0,0,0.8}
+\definecolor{FB2}{RGB}{255,158,27}
+\definecolor{FB2light}{RGB}{255,221,175}
+\definecolor{FB2title}{RGB}{45,137,204}
+
+\setbeamercolor{alerted text}{fg=darkblue!80!yellow}
+\setbeamercolor*{palette primary}{fg=darkblue!60!black,bg=FB2light}
+\setbeamercolor*{palette secondary}{fg=darkblue!70!black,bg=FB2}
+\setbeamercolor*{palette tertiary}{bg=darkblue!80!black,fg=FB2}
+\setbeamercolor*{palette quaternary}{fg=darkblue,bg=FB2}
+
+%\setbeamercolor*{sidebar}{fg=darkblue,bg=orange!75!white}
+
+\setbeamercolor{itemize item}{fg=FB2}
+\setbeamercolor{itemize subitem}{parent=itemize item}
+\setbeamercolor{itemize subsubitem}{parent=itemize item}
+
+\setbeamercolor{enumerate item}{fg=FB2}
+\setbeamercolor{enumerate subitem}{parent=itemize item}
+\setbeamercolor{enumerate subsubitem}{parent=itemize item}
+
+\setbeamercolor*{palette sidebar primary}{fg=FB2}
+\setbeamercolor*{palette sidebar secondary}{fg=white}
+\setbeamercolor*{palette sidebar tertiary}{fg=FB2}
+%\setbeamercolor*{palette sidebar quaternary}{fg=yellow!10!orange}
+
+\setbeamercolor*{titlelike}{parent=palette primary,fg=FB2title}
+\setbeamercolor{frametitle}{bg=white,fg=FB2title}
+\setbeamercolor{titlefooter}{fg=white,bg=FB2}
+\setbeamercolor{footer}{fg=black,bg=white}
+\setbeamercolor{frametitle right}{bg=FB2light}
+
+\setbeamercolor*{separation line}{}
+\setbeamercolor*{fine separation line}{}
+
+\setbeamercolor{section number projected}{bg=black,fg=FB2}
+\setbeamercolor{section in toc}{fg=FB2}
+
+\mode
+<all>

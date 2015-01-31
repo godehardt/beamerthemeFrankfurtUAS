@@ -1,0 +1,82 @@
+\documentclass[english]{beamer}
+%\documentclass[aspectratio=169]{beamer}
+%\usepackage{times}
+%\usepackage{amsmath}
+%\usepackage{color}
+%\usepackage{amssymb}
+%\usepackage{pgf}
+\usepackage{rotating}
+\usepackage{verbatim}
+\usepackage{latexsym}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+\usepackage{eurosym}   % Euro symbol: \euro
+\usepackage{listings}
+\usepackage{multirow}
+\usepackage{colortbl}
+\usepackage{textcomp}  % many special symbols
+\usepackage{lmodern}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+
+\usetheme{FrankfurtUniversity}
+
+
+\title[Example]{Theme “FrankfurtUniversity”}
+\subtitle{Example Slide Set}
+\author[Godehardt]{Prof.~Dr.~Eicke Godehardt}
+\institute{Frankfurt University of Applied Sciences\\
+           Faculty of Computer Science and Engineering\\
+           \texttt{godehardt@fb2.fra-uas.de}}
+\date{October 20, 2014}
+
+
+
+\begin{document}
+
+
+\begin{frame}
+\titlepage
+\end{frame}
+%\addtocounter{framenumber}{-1}
+
+
+\begin{frame}
+\vspace{1.4cm}
+\center{\huge\makebox[0pt]{\smash{\fontsize{190}{0}\selectfont\color{lightgray}\raisebox{-.5em}[0pt][0pt]{\,”}}}%
+The sooner you start to code, the longer the program will take.}
+
+\raggedleft
+Roy Carlson
+\end{frame}
+
+
+\begin{frame}
+   \frametitle{Agenda}
+   \tableofcontents[hideallsubsections]
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\section{Content}
+
+\begin{frame}[fragile]
+ \frametitle{Example of Normal Slide}
+ \framesubtitle{Subtitle}
+  \begin{itemize}
+   \item Item 1
+   \item Item 2:
+     \begin{itemize}
+      \item Subitem 2.1
+      \item\dots
+     \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\end{document}

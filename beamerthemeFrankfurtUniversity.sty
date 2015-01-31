@@ -1,0 +1,95 @@
+% Copyright 2014 by Eicke Godehardt
+%
+% This file is based on the original themes of LaTeX beamer 
+% style and may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License, version 1.3c
+%    or (at your option) any later version and/or
+% 2. under the GNU Public License, Version 2 or any later
+%    version published by the Free Software Foundation.
+
+\mode<presentation>
+
+%\useoutertheme{default}
+%\useoutertheme[subsection=false]{smoothbars}
+%\useinnertheme[shadow=true]{rounded}
+%\useinnertheme[shadow=true]{square}
+\usecolortheme{FrankfurtUniversity}
+
+\setbeamerfont{block title}{size={}}
+
+\setbeamertemplate{itemize items}[square]
+\setbeamertemplate{sections/subsections in toc}[none]
+
+
+
+\setbeamertemplate{headline}{%
+  \ifnum\insertpagenumber=1%
+    {\hfill\includegraphics[width=3cm]{Logo}\hspace{2mm}\mbox{}}%
+    \vspace{-4mm}%
+  \else%
+    {\hfill\includegraphics[width=2.4cm]{Logo}\hspace{3.3mm}\mbox{}}%
+%    \vskip5pt\insertnavigation{12.75cm}\vskip5pt
+  \fi%
+}
+
+
+\setbeamertemplate{footline}%
+{%
+  \fontsize{5}{6} \selectfont%
+  \ifnum\insertpagenumber=1%
+    \begin{beamercolorbox}{titlefooter}%
+      \rule[-1.1mm]{0mm}{3.5mm}%
+      \hspace*{0.5cm}%
+      \insertframenumber/\inserttotalframenumber%
+      \hspace*{0.5cm}%
+      \insertauthor\ | \inserttitle\ | \insertsubtitle%
+      \hfill%
+      \insertdate%
+      \hspace*{0.5cm}\mbox{}%
+    \end{beamercolorbox}%
+  \else%
+%    \leavevmode
+    \hbox{%
+      \begin{beamercolorbox}[wd=.79\paperwidth,ht=.1em,dp=1.2ex,left,leftskip=2ex]{footer}%
+        \hspace*{0.4cm}%
+        \insertframenumber/\inserttotalframenumber%
+        \hspace*{0.5cm}%
+        \insertauthor\ | \inserttitle\ | \insertsubtitle%
+      \end{beamercolorbox}%
+      \smash{\begin{beamercolorbox}[wd=.20\paperwidth,ht=1.3em,dp=2ex,right,rightskip=2ex]{titlefooter}%
+      \end{beamercolorbox}}%
+      \hspace{-1.3em}%
+      \smash{\begin{beamercolorbox}[wd=2.5em,ht=.18\paperwidth,dp=3ex]{titlefooter}%
+      \end{beamercolorbox}%
+    }%
+  }%
+  \fi%
+}
+
+
+\defbeamertemplate*{title page}{customized}[1][]%
+{%
+  \vspace{2.3ex}%
+  \usebeamerfont{subtitle}%
+  \usebeamercolor[fg]{subtitle}%
+  \hbox{%
+    \begin{beamercolorbox}[sep=0.em,wd=1.0\paperwidth,ht=4cm,dp=4cm,leftskip=2.4em]{title}%
+      \usebeamerfont{title}{\huge\inserttitle}\par%
+      \usebeamerfont{subtitle}{\Large\insertsubtitle}\par%
+      \vspace{0.2in}%
+      \usebeamerfont{author}\insertauthor\par%
+      \usebeamerfont{institute}\insertinstitute\par%
+    \end{beamercolorbox}%
+%    \hspace{-1.4mm}%
+    \hspace{6.5mm}%
+% insert upright bar on the right
+    \begin{beamercolorbox}[sep=1em,wd=1em,ht=4cm,dp=4cm,leftskip=2.em]{titlefooter}%
+    \end{beamercolorbox}%
+  }%
+}
+
+\setbeamertemplate{navigation symbols}{}
+
+\mode
+<all>
