@@ -1,4 +1,4 @@
-% Copyright 2014 by Eicke Godehardt
+% Copyright 2014-2015 by Eicke Godehardt
 %
 % This file is based on the original themes of LaTeX beamer
 % style and may be distributed and/or modified
@@ -13,32 +13,41 @@
 \mode<presentation>
 
 \definecolor{FrankfurtUniversityColor}{RGB}{45,137,204}
+\definecolor{FB1Color}{RGB}{124,128,52}
+\definecolor{FB2Color}{RGB}{255,158,27}
+\definecolor{FB3Color}{RGB}{196,213,42}
+\definecolor{FB4Color}{RGB}{204,31,47}
 
 \DeclareOptionBeamer{fb1}{
-  \definecolor{FrankfurtUniversityColor}{RGB}{124,128,52}
+  \colorlet{FrankfurtUniversityColor}{FB1Color}
 }
 \DeclareOptionBeamer{fb2}{
-  \definecolor{FrankfurtUniversityColor}{RGB}{255,158,27}
+  \colorlet{FrankfurtUniversityColor}{FB2Color}
 }
 \DeclareOptionBeamer{fb3}{
-  \definecolor{FrankfurtUniversityColor}{RGB}{196,213,42}
+  \colorlet{FrankfurtUniversityColor}{FB3Color}
 }
 \DeclareOptionBeamer{fb4}{
-  \definecolor{FrankfurtUniversityColor}{RGB}{204,31,47}
+  \colorlet{FrankfurtUniversityColor}{FB4Color}
 }
 \ProcessOptionsBeamer
 
-%\useoutertheme{default}
-%\useoutertheme[subsection=false]{smoothbars}
-%\useinnertheme[shadow=true]{rounded}
-%\useinnertheme[shadow=true]{square}
+
 \usecolortheme{FrankfurtUniversity}
+
 
 \setbeamerfont{block title}{size={}}
 
 \setbeamertemplate{itemize items}[square]
 \setbeamertemplate{sections/subsections in toc}[none]
 
+
+\newlength{\newheadheight}
+\newlength{\newtextheight}
+\setlength{\newheadheight}{\headheight}
+\setlength{\newtextheight}{\textheight}
+\addtolength{\newheadheight}{.5em}%
+\addtolength{\newtextheight}{-.5em}%
 
 
 \setbeamertemplate{headline}{%
@@ -47,7 +56,8 @@
     \vspace{-4mm}%
   \else%
     {\hfill\includegraphics[width=2.4cm]{FRA-UAS_Logo.pdf}\hspace{3.3mm}\mbox{}}%
-%    \vskip5pt\insertnavigation{12.75cm}\vskip5pt
+    \global\setlength{\headheight}{\newheadheight}%
+    \global\setlength{\textheight}{\newtextheight}%
   \fi%
 }
 
@@ -67,7 +77,6 @@
       \hspace*{0.5cm}\mbox{}%
     \end{beamercolorbox}%
   \else%
-%    \leavevmode
     \hbox{%
       \begin{beamercolorbox}[wd=.79\paperwidth,ht=.1em,dp=1.2ex,left,leftskip=2ex]{footer}%
         \hspace*{0.4cm}%
@@ -99,8 +108,7 @@
       \usebeamerfont{author}\insertauthor\par%
       \usebeamerfont{institute}\insertinstitute\par%
     \end{beamercolorbox}%
-%    \hspace{-1.4mm}%
-    \hspace{6.5mm}%
+    \hspace{1.8mm}%
 % insert upright bar on the right
     \begin{beamercolorbox}[sep=1em,wd=1em,ht=4cm,dp=4cm,leftskip=2.em]{titlefooter}%
     \end{beamercolorbox}%
@@ -110,10 +118,13 @@
 \setbeamertemplate{navigation symbols}{}
 
 
-\setbeamersize{text margin left=1.2em}
-\setbeamersize{text margin right=1.2em}
+\setbeamersize{text margin left=1.5em}
+\setbeamersize{text margin right=1.5em}
 \setbeamersize{sidebar width right=0.cm}
 \setbeamersize{sidebar width left=0cm}
+
+
+\newcommand{\textem}[1]{\textbf{\color{FrankfurtUniversityColor}#1}}
 
 \mode
 <all>

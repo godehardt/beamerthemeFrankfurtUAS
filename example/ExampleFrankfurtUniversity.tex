@@ -1,7 +1,6 @@
 \documentclass[english]{beamer}
 %\documentclass[aspectratio=169]{beamer}
 %\usepackage{amsmath}
-%\usepackage{color}
 %\usepackage{amssymb}
 \usepackage{rotating}
 \usepackage{verbatim}
@@ -20,26 +19,19 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
+\usepackage{booktabs}
 
 
 \usetheme[fb2]{FrankfurtUniversity}
-%\usetheme{FrankfurtUniversity}
 
 
-\title[Example]{Example Slide Set}
+\title{Example Slide Set}
 \subtitle{\LaTeX\ beamer theme “FrankfurtUniversity”}
-\author[Godehardt]{Prof.~Dr.~Eicke Godehardt}
+\author{Prof.~Dr.~Eicke Godehardt}
 \institute{Frankfurt University of Applied Sciences\\
            Faculty of Computer Science and Engineering\\
            \texttt{godehardt@fb2.fra-uas.de}}
-\date{December 13, 2014}
-
-
-% you can change the default border sizes
-%\setbeamersize{text margin left=1.2em}
-%\setbeamersize{text margin right=1.2em}
-%\setbeamersize{sidebar width right=0.cm}
-%\setbeamersize{sidebar width left=0cm}
+\date{January 15, 2015}
 
 
 \begin{document}
@@ -54,10 +46,11 @@
 \begin{frame}
 \vspace{1.4cm}
 \center{\huge\makebox[0pt]{\smash{\fontsize{190}{0}\selectfont\color{lightgray}\raisebox{-.5em}[0pt][0pt]{\,”}}}%
-The sooner you start to code, the longer the program will take.}
+If you are not prepared to be wrong, you never come up with anything original.
+}
 
 \raggedleft
-Roy Carlson
+Sir Ken Robinson
 \end{frame}
 
 
@@ -67,13 +60,17 @@ Roy Carlson
 %   \tableofcontents[hideallsubsections]
 \end{frame}
 
-% -----------------------------------------------------------------------------
+
 
 \section{Normal Slide}
 
 \begin{frame}[fragile]
  \frametitle{Example of Normal Slide}
  \framesubtitle{Subtitle}
+ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet
+ vulputate ante, vel laoreet erat. Cras pulvinar, sem nec lobortis vehicula,
+ leo dolor commodo.
+ 
   \begin{itemize}
    \item Item 1
    \item Item 2:
@@ -86,40 +83,114 @@ Roy Carlson
 
 
 
-\section{Table}
-\subsection{Example of a Table}
+\section{Floats}
+
+\subsection{Figures}
 
 \begin{frame}
- \frametitle{Example of a Table}
- \framesubtitle{Tables in Beamer}
-\begin{table}[ht]
- \begin{tabular}{|l|r|} \hline
- \textbf{Programming Language}     & \textbf{LOC/FP}  \\
- \hline \hline
- Assembly Language		&     320      \\ 
- C					&     128      \\
- COBOL				&     106      \\
- FORTRAN			&     106      \\
- Pascal				&       90      \\
- C++					&       64      \\  
- Ada95				&       53      \\
- Visual Basic			&       32      \\
- Smalltalk				&       22      \\
- SQL					&       12      \\\hline
- \end{tabular}
- \caption{Relationship between LOC and FP}
-\end{table}
+\frametitle{Figure on slide}
+\begin{center}
+\includegraphics[height=7.5cm]{shall_i_give_him_a_hint.png}
+\end{center}
+\vspace{-6mm}
+\tiny Artist: Tony Auth
 \end{frame}
 
 
 
-\section{Block}
+\begin{frame}
+\frametitle{Image and Bullet Points Side by Side}
+\begin{columns}
+\begin{column}{.66\textwidth}
+\begin{itemize}
+\item \textbf{Lorem ipsum} 
+\begin{enumerate}
+\item Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+\item Donec ut est laoreet, sagittis tortor ac, rhoncus metus.
+\end{enumerate}
+\item \textbf{Etiam eget} 
+\begin{itemize}
+\item Etiam eget lectus ac nisl blandit pretium in id velit.
+\end{itemize}
+\end{itemize}
+\end{column}
+
+\begin{column}{.3\textwidth}
+\includegraphics[width=\textwidth]{me}
+\end{column}
+\end{columns}
+
+\vspace{-.7mm}
+\begin{itemize}
+\item \textbf{Ut in lorem sollicitudin}
+\begin{itemize}
+\item Ut in lorem sollicitudin, condimentum magna ac, condimentum urna.
+\item Ut malesuada eros id odio rutrum auctor varius a mi.
+\item Nulla nec sapien condimentum, faucibus libero at, tristique ante.
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+
+\subsection{Tables}
 
 \begin{frame}
- \frametitle{Using the \texttt{\textbackslash block} command}
-\begin{block}{Title of Box}
-Content of Box!
+ \frametitle{Example of a Table}
+\begin{table}[ht]
+ \begin{tabular}{clrr} \toprule
+ 2015 (2014)	& 	Language 	& Ratings 	& Change \\
+ \midrule
+1	(1)		& C		& 16.703\%	& -1.24\% \\
+2	   (2)		& Java	& 15.528\%	& -1.00\% \\
+3	   (3)		& Objective-C	& 6.953\%	& -4.14\% \\
+4	   (4)		& C++	& 6.705\%	& -0.86\% \\
+5	   (5)		& C\#		& 5.045\%	& -0.80\% \\
+6	   (6)		& PHP	& 3.784\%	& -0.82\% \\
+7	   (9)		& JavaScript	& 3.274\%	& \textem{+1.70\%} \\
+8	   (8)		& Python	& 2.613\%	& +0.24\% \\
+9	 (13)		& Perl	& 2.256\%	& +1.33\% \\
+10	 (17)		& PL/SQL	& 2.014\%	& +1.38\% \\
+\bottomrule
+ \end{tabular}
+ \caption{TIOBE Index for January 2015}
+\end{table}
+\vspace{-3mm}
+\tiny Source: \texttt{http://www.tiobe.com}
+\end{frame}
+
+
+
+\section{Emphasize}
+
+\subsection{Block}
+
+\begin{frame}
+ \frametitle{Using the \texttt{block} environment}
+\begin{block}{Title of Bock}
+  Content of block goes here.
 \end{block}
+
+\begin{exampleblock}{Example No. 42}
+  This is an example.
+\end{exampleblock}
+ 
+\begin{alertblock}{Watch out!!!}
+  You must not do that!
+\end{alertblock}
+\end{frame}
+
+
+\subsection{Text Emphasize}
+
+\begin{frame}
+ \frametitle{Using the \texttt{\textbackslash textem} command}
+You can \textem{emphasize} words by using \texttt{\textbackslash textem\{emphasize\}}.
+
+It will automatically use the color of your faculty.
+
+\vspace{\baselineskip}
+BTW you can access all the different colors as \texttt{FB1Color} etc.
 \end{frame}
 
 
