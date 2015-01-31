@@ -42,10 +42,10 @@
 \setbeamertemplate{sections/subsections in toc}[none]
 
 
-\newlength{\newheadheight}
-\newlength{\newtextheight}
-\setlength{\newheadheight}{\headheight}
-\setlength{\newtextheight}{\textheight}
+\newlength{\newheadheight}%
+\newlength{\newtextheight}%
+\setlength{\newheadheight}{\headheight}%
+\setlength{\newtextheight}{\textheight}%
 \addtolength{\newheadheight}{.5em}%
 \addtolength{\newtextheight}{-.5em}%
 
@@ -56,8 +56,9 @@
     \vspace{-4mm}%
   \else%
     {\hfill\includegraphics[width=2.4cm]{FRA-UAS_Logo.pdf}\hspace{3.3mm}\mbox{}}%
-    \global\setlength{\headheight}{\newheadheight}%
-    \global\setlength{\textheight}{\newtextheight}%
+% had to use TeX style of setting this length (actually a skip), for the calc package breaks \setlength
+    \global\headheight\newheadheight\relax%
+    \global\textheight\newtextheight\relax%
   \fi%
 }
 
