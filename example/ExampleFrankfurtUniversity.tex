@@ -5,7 +5,6 @@
 \usepackage{rotating}
 \usepackage{verbatim}
 \usepackage{latexsym}
-\usepackage{color}
 \usepackage{graphicx}
 \usepackage{tabularx}
 \usepackage{ragged2e}
@@ -31,7 +30,7 @@
 \institute{Frankfurt University of Applied Sciences\\
            Faculty of Computer Science and Engineering\\
            \texttt{godehardt@fb2.fra-uas.de}}
-\date{January 15, 2015}
+\date{\today}%{January 15, 2015}
 
 
 \begin{document}
@@ -45,7 +44,7 @@
 
 \begin{frame}
 \vspace{1.4cm}
-\center{\huge\makebox[0pt]{\smash{\fontsize{190}{0}\selectfont\color{lightgray}\raisebox{-.5em}[0pt][0pt]{\,”}}}%
+\center{\huge\makebox[0pt]{\smash{\fontfamily{ptm}\fontsize{190}{0}\selectfont\color{lightgray}\raisebox{-.5em}[0pt][0pt]{\,'\!'}}}%
 If you are not prepared to be wrong, you never come up with anything original.
 }
 
@@ -56,8 +55,7 @@ Sir Ken Robinson
 
 \begin{frame}
    \frametitle{Agenda}
-   \tableofcontents
-%   \tableofcontents[hideallsubsections]
+   \tableofcontents%[hideallsubsections]
 \end{frame}
 
 
@@ -153,7 +151,7 @@ Sir Ken Robinson
 10	 (17)		& PL/SQL	& 2.014\%	& +1.38\% \\
 \bottomrule
  \end{tabular}
- \caption{TIOBE Index for January 2015}
+ \caption{TIOBE Index as of January 2015}
 \end{table}
 \vspace{-3mm}
 \tiny Source: \texttt{http://www.tiobe.com}
@@ -181,6 +179,7 @@ Sir Ken Robinson
 \end{frame}
 
 
+
 \subsection{Text Emphasize}
 
 \begin{frame}
@@ -190,8 +189,34 @@ You can \textem{emphasize} words by using \texttt{\textbackslash textem\{emphasi
 It will automatically use the color of your faculty.
 
 \vspace{\baselineskip}
-BTW you can access all the different colors as \texttt{FB1Color} etc.
+BTW you can access all the different colors as \texttt{FB1Color}, \texttt{FB2Color} etc.
 \end{frame}
+
+
+
+\subsection{Code Blocks}
+
+\begin{frame}[fragile]
+ \frametitle{Displaying chunks of code}
+
+\begin{lstlisting}[language=Python]
+part = new Part()
+part.name = "Sample part"
+part.price = 123.45
+part.save()
+\end{lstlisting}
+
+Another example with SQL:
+
+\begin{lstlisting}[language=sql]
+INSERT INTO parts (name, price) VALUES ('Sample part', 123.45);
+\end{lstlisting}
+
+\begin{alertblock}{Don't forget}
+  \dots\ to mark your frame as \texttt{[fragile]}
+\end{alertblock}
+\end{frame}
+
 
 
 \end{document}

@@ -10,6 +10,8 @@
 
 \ProvidesPackage{beamerthemeFrankfurtUniversity}
 
+\RequirePackage{listings}
+
 \mode<presentation>
 
 \definecolor{FrankfurtUniversityColor}{RGB}{45,137,204}
@@ -31,6 +33,29 @@
   \colorlet{FrankfurtUniversityColor}{FB4Color}
 }
 \ProcessOptionsBeamer
+
+
+\lstset{%
+basicstyle=\ttfamily\scriptsize,        % Code font, Examples: \footnotesize, \ttfamily
+keywordstyle=\color{blue!80!black},     % Keywords font ('*' = uppercase)
+commentstyle=\color{gray},              % Comments font
+numbers=left,                           % Line nums position
+numberstyle=\tiny,                      % Line-numbers fonts
+stepnumber=1,                           % Step between two line-numbers
+numbersep=5pt,                          % How far are line-numbers from code
+backgroundcolor=\color{gray!10!white},  % Choose background color
+frame=none,                             % A frame around the code
+tabsize=2,                              % Default tab size
+captionpos=b,                           % Caption-position = bottom
+breaklines=true,                        % Automatic line breaking?
+breakatwhitespace=false,                % Automatic breaks only at whitespace?
+showspaces=false,                       % Dont make spaces visible
+showstringspaces=false                  %
+showtabs=false,                         % Dont make tabls visible
+columns=flexible,                       % Column format
+morekeywords={},                        % Specific keywords
+stringstyle=\color{green!50!black},%
+}%
 
 
 \usecolortheme{FrankfurtUniversity}
