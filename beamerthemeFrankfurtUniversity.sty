@@ -150,7 +150,12 @@ stringstyle=\color{green!50!black},%
 \setbeamersize{sidebar width left=0cm}
 
 
-\newcommand{\textem}[1]{\textbf{\color{FrankfurtUniversityColor}#1}}
+\DeclareRobustCommand{\em}{%
+  \color{FrankfurtUniversityColor}\@nomath\em \if b\expandafter\@car\f@series\@nil%
+  \normalfont\else\bfseries\fi}
+\DeclareTextFontCommand{\emph}{\em}
+\DeclareTextFontCommand{\textem}{\em}% depricated 
+
 
 \mode
 <all>
