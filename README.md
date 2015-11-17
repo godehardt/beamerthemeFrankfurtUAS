@@ -15,6 +15,9 @@ As option you can add your faculty (fb1-fb4).  See example for more details.
 Revisions and Changes
 ---------------------
 
+2015-11-17
+ * depricated \textem in favor of \emph
+
 2015-06-11
  * add default color and style for listings
 
