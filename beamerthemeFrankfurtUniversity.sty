@@ -11,6 +11,9 @@
 \ProvidesPackage{beamerthemeFrankfurtUniversity}
 
 \RequirePackage{listings}
+\RequirePackage{graphicx}
+\RequirePackage{tikz}
+
 
 \mode<presentation>
 
@@ -155,6 +158,57 @@ stringstyle=\color{green!50!black},%
   \normalfont\else\bfseries\fi}
 \DeclareTextFontCommand{\emph}{\em}
 \DeclareTextFontCommand{\textem}{\em}% depricated 
+
+
+
+
+% The following code to set images transparent after \pause, too.
+% https://web.archive.org/web/20140511130153/http://funkysea.com/?p=6
+% Content © 2014 Funky Sea, under the licence DTFWYW (do the fuck what you want)
+
+%\usepackage{transparent}
+\gdef\transparent@value{100}
+
+\let\oldincludegraphics\includegraphics
+\renewcommand*{\includegraphics}[2][]{%
+    \begin{tikzpicture}%
+      {\node[opacity=\transparent@value/100]
+      {\oldincludegraphics[#1]{#2}};}%
+    \end{tikzpicture}%
+}
+
+% override of the original beamer@mixin transparent
+\define@key{beamer@mixin}{transparent}[15]{%
+    \def\beamer@uncoverbeforeactions{\ignorespaces\opaquenessCustom{#1}}%
+    \def\beamer@uncoverafteractions{\ignorespaces\opaquenessCustom{#1}}%
+}
+
+% mostly a copy-and-paste of the original code from beamerbaseoverlay.sty
+\def\opaquenessCustom#1{%
+\only<1->{%
+\beamer@actions{%
+\gdef\transparent@value{#1}% here we change the custom transparency according to the pauses
+\expandafter\xdef\csname beamer@oldcolorhook%
+\the\beamer@coveringdepth\endcsname{\beamer@colorhook}%
+\expandafter\xdef\csname beamer@oldpgfextension%
+\the\beamer@coveringdepth\endcsname{\beamer@pgfextension}%
+{\globalcolorstrue\colorlet{beamer@freeze\the\beamer@coveringdepth}{bg}}%
+\xdef\beamer@colorhook{!#1!beamer@freeze%
+\the\beamer@coveringdepth\beamer@colorhook}%
+\gdef\beamer@pgfextension{!#1opaque}%
+\color{.}%
+}%
+{%
+\gdef\transparent@value{100}% here we initialize our custom transparency
+\xdef\beamer@colorhook{\csname beamer@oldcolorhook%
+\the\beamer@coveringdepth\endcsname}%
+\xdef\beamer@pgfextension{\csname beamer@oldpgfextension%
+\the\beamer@coveringdepth\endcsname}%
+\color{.}%
+}}%
+}%
+
+\setbeamercovered{transparent}
 
 
 \mode
