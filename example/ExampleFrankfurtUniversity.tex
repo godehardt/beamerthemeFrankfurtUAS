@@ -1,4 +1,5 @@
-\documentclass[english]{beamer}
+%\documentclass[english]{beamer}
+\documentclass[english,hangout]{beamer}
 %\documentclass[aspectratio=169]{beamer}
 %\usepackage{amsmath}
 %\usepackage{amssymb}
@@ -22,6 +23,8 @@
 
 
 \usetheme[fb2]{FrankfurtUniversity}
+%\usetheme[fb2,noslogan]{FrankfurtUniversity}
+%\slogan{\large\color{red}UNAUTHORIZED}
 
 
 \title{Example Slide Set}
@@ -98,8 +101,8 @@ Sir Ken Robinson
 
 \begin{frame}
 \frametitle{Image and Bullet Points Side by Side}
-\begin{columns}
-\begin{column}{.66\textwidth}
+\begin{columns}[onlytextwidth]
+\begin{column}{.7\textwidth}
 \begin{itemize}
 \item \textbf{Lorem ipsum} 
 \begin{enumerate}
@@ -206,7 +209,7 @@ part.price = 123.45
 part.save()
 \end{lstlisting}
 
-Another example with SQL:
+Another example with \blank{SQL}:
 
 \begin{lstlisting}[language=sql]
 INSERT INTO parts (name, price) VALUES ('Sample part', 123.45);

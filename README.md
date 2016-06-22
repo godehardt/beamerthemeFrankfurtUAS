@@ -15,6 +15,10 @@ As option you can add your faculty (fb1-fb4).  See example for more details.
 Revisions and Changes
 ---------------------
 
+2016-06-22
+ * add default slogan “Wissen durch Praxis stärkt”
+   can be overridden by option “noslogan” or \slogan{Any Text}
+
 2015-11-18
  * add fix for transparent images after pause
 
