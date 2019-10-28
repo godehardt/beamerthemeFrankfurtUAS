@@ -1,12 +1,4 @@
-<<<<<<< HEAD
-[![alt text](image "tooltip")](hyperlink)
-<img width="200" height="92" src="https://www.frankfurt-university.de/typo3conf/ext/dkd_fuas/Resources/Public/Images/logo.svg" alt="Frankfurt University of Applied Science Logo" />
-
-=======
-[![Frankfurt University of Applied Science](https://www.frankfurt-university.de/typo3conf/ext/dkd_fuas/Resources/Public/Images/logo.svg "Frankfurt University of Applied Science Logo")](https://www.frankfurt-university.de/){:width="200"}
-
-[![alt text](image "tooltip")](hyperlink)
->>>>>>> 301a2b9d9b5cd5348d1ffae9cc7a25455819dc16
+<img class="float: left" width="200" height="92" src="https://www.frankfurt-university.de/typo3conf/ext/dkd_fuas/Resources/Public/Images/logo.svg" alt="Frankfurt University of Applied Science Logo" />
 
 LaTeX beamer theme “FrankfurtUniversity”
 ========================================
