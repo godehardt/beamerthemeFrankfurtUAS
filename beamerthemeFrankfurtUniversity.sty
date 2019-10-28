@@ -40,6 +40,11 @@
 }
 \ProcessOptionsBeamer
 
+%\setbeamercolor{block title}{fg = white, bg = FrankfurtUniversityColor}
+%\setbeamercolor{block title}{fg = FrankfurtUniversityColor, bg = FrankfurtUniversityColor!15!white}
+\setbeamercolor{block title}{fg = FrankfurtUniversityColor!90!black, bg = FrankfurtUniversityColor!15!white}
+%\setbeamercolor{block title}{fg = FrankfurtUniversityColor!50!black, bg = FrankfurtUniversityColor!15!white}
+\setbeamercolor{block body}{bg = gray!5!white}
 
 \lstset{%
 basicstyle=\ttfamily\scriptsize,        % Code font, Examples: \footnotesize, \ttfamily
@@ -103,7 +108,7 @@ stringstyle=\color{green!50!black},%
       \hspace*{0.5cm}%
       \insertframenumber/\inserttotalframenumber%
       \hspace*{0.5cm}%
-      \insertauthor\ | \inserttitle\ | \insertsubtitle%
+      \insertshortauthor\ | \insertshorttitle\ | \insertshortsubtitle%
       \hfill%
       \insertdate%
             \raisebox{3em}[0pt][0pt]{%
@@ -119,7 +124,7 @@ stringstyle=\color{green!50!black},%
         \hspace*{0.4cm}%
         \insertframenumber/\inserttotalframenumber%
         \hspace*{0.5cm}%
-        \insertauthor\ | \inserttitle\ | \insertsubtitle%
+        \insertshortauthor\ | \insertshorttitle\ | \insertshortsubtitle%
       \end{beamercolorbox}%
       \smash{\begin{beamercolorbox}[wd=.20\paperwidth,ht=1.3em,dp=2ex,right,rightskip=2ex]{titlefooter}%
       \end{beamercolorbox}}%
