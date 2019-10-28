@@ -1,4 +1,4 @@
-<img class="float: left" width="200" height="92" src="https://www.frankfurt-university.de/typo3conf/ext/dkd_fuas/Resources/Public/Images/logo.svg" alt="Frankfurt University of Applied Science Logo" />
+[<img style="float: left" width="200" height="92" src="https://www.frankfurt-university.de/typo3conf/ext/dkd_fuas/Resources/Public/Images/logo.svg" alt="Frankfurt University of Applied Science Logo" />](https://www.frankfurt-university.de/)
 
 LaTeX beamer theme “FrankfurtUniversity”
 ========================================
