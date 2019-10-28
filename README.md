@@ -1,3 +1,7 @@
+[![Frankfurt University of Applied Science](https://www.frankfurt-university.de/typo3conf/ext/dkd_fuas/Resources/Public/Images/logo.svg "Frankfurt University of Applied Science Logo")](https://www.frankfurt-university.de/){:width="200"}
+
+[![alt text](image "tooltip")](hyperlink)
+
 LaTeX beamer theme “FrankfurtUniversity”
 ========================================
 
@@ -14,6 +18,9 @@ As option you can add your faculty (fb1-fb4).  See example for more details.
 
 Revisions and Changes
 ---------------------
+
+2019-10-28
+ * less obstrusive block colors (thanks to Jörg Schäfer)
 
 2016-06-22
  * add default slogan “Wissen durch Praxis stärkt”
