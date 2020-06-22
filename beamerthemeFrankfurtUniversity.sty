@@ -266,6 +266,9 @@ stringstyle=\color{green!50!black},%
 %\usepackage{transparent}
 \gdef\transparent@value{100}
 
+\let\oldurl\url
+\renewcommand{\url}[1]{\underline{\color{darkblue}\smash{\oldurl{#1}}}}
+
 \let\oldincludegraphics\includegraphics
 \renewcommand*{\includegraphics}[2][]{%
     \begin{tikzpicture}%
