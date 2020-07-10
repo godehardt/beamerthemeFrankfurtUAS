@@ -267,7 +267,7 @@ stringstyle=\color{green!50!black},%
 \gdef\transparent@value{100}
 
 \let\oldurl\url
-\renewcommand{\url}[1]{{\color{darkblue}\underline{\smash{\oldurl{#1}}}}}
+\renewcommand{\url}[1]{{\color{darkblue}\underline{\raisebox{0pt}[1ex][0pt]{\oldurl{#1}}}}}
 
 \let\oldincludegraphics\includegraphics
 \renewcommand*{\includegraphics}[2][]{%
