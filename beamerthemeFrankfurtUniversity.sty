@@ -266,8 +266,24 @@ stringstyle=\color{green!50!black},%
 %\usepackage{transparent}
 \gdef\transparent@value{100}
 
+%\PassOptionsToPackage{breaklinks}{hyperref}
+%\hypersetup{pdfborder={0 0 1},pdfborderstyle={/S/U/W 1}}
+
+%to get line breaks within urls
+\RequirePackage{etoolbox}
+\gappto{\UrlBreaks}{\UrlOrds}
+
 \let\oldurl\url
-\renewcommand{\url}[1]{{\color{darkblue}\underline{\raisebox{0pt}[1ex][0pt]{\oldurl{#1}}}}}
+\renewcommand{\url}[1]{%[2][]
+	\sloppy
+%	\ifx&#1&
+		{\color{FrankfurtUniversityTitleColor}%\uline
+%		{\raisebox{0pt}[1ex][0pt]
+		{\oldurl{#1}}}
+%	\else
+%		{\color{darkblue}\uline{\raisebox{0pt}[1ex][0pt]{\href{#2}{#1}}}}
+%	\fi%
+}
 
 \let\oldincludegraphics\includegraphics
 \renewcommand*{\includegraphics}[2][]{%
