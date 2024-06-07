@@ -12,9 +12,10 @@ or
     \usetheme[screen5]{FrankfurtUAS}
 
 or even easier
-	\documentclass{FrankfurtUAS}
 
-As option you can choose your favorite color theme (screen[1–6]/print[1–6]).  See example for more details.  Another option is “titlewhite” if you prefere white title instead of main theme color.
+    \documentclass{FrankfurtUAS}
+
+The latter will also default to 16x9 aspect ratio and not 4x3.  As option you can choose your favorite color theme (screen[1–6]/print[1–6]).  See example for more details.  Another option is “titlewhite” if you prefere white title instead of main theme color.
 
 
 Revisions and Changes
