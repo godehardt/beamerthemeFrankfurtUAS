@@ -10,17 +10,23 @@ You can use this theme by including
 
     \usetheme{FrankfurtUAS}
 
-or
-
-    \usetheme[screen5]{FrankfurtUAS}
-
 or even easier
 
     \documentclass{FrankfurtUAS}
 
-The latter will also default to 16x9 aspect ratio and not 4x3.  As option you can choose your favorite color theme (screen[1–6]/print[1–6]).  See example for more details.  Another option is “titlewhite” if you prefere white title instead of main theme color.
+The latter will also default to 16x9 aspect ratio and not 4x3.
 
 In order to use the correspondig fonts, your have to install Aptos and Space Grotesk fonts in your system AND use XeLaTeX!
+
+
+Options
+-------
+
+To pick and choose a specific color theme (screen[1–6]/print[1–6]).
+
+    \usetheme[screen5]{FrankfurtUAS}
+
+Another option is “titlewhite” if you prefere white title instead of main theme color.
 
 
 Installation
