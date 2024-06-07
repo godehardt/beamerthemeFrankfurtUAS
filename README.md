@@ -5,17 +5,23 @@ LaTeX beamer theme “FrankfurtUniversity”
 
 You can use this theme by including
 
-    \usetheme{FrankfurtUniversity}
+    \usetheme{FrankfurtUAS}
 
 or
 
-    \usetheme[fb2]{FrankfurtUniversity}
+    \usetheme[screen5]{FrankfurtUAS}
 
-As option you can add your faculty (fb1-fb4).  See example for more details.
+or even easier
+	\documentclass{FrankfurtUAS}
+
+As option you can choose your favorite color theme (screen[1–6]/print[1–6]).  See example for more details.  Another option is “titlewhite” if you prefere white title instead of main theme color.
 
 
 Revisions and Changes
 ---------------------
+
+2024-06-07
+ * adapt new style guide (thanks to Cyriax for the great work with all triangles, colors and themes)
 
 2019-10-28
  * less obstrusive block colors (thanks to Jörg Schäfer)
@@ -48,4 +54,3 @@ Revisions and Changes
 
 2014-10-21
  * initial version
-

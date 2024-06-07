@@ -1,0 +1,776 @@
+%
+%        .-._
+%      .-| | |
+%    _ | | | |__FRANKFURT
+%  ((__| | | | UNIVERSITY
+%     OF APPLIED SCIENCES
+%
+% Copyright 2014-2024 by Eicke Godehardt
+%
+% This file is based on the original themes of LaTeX beamer
+% style and may be distributed and/or modified.
+% Initial support of new style guide in 2024 is highly inspired
+% by Cyriax Brast.  Kudos.
+%
+% 1. under the LaTeX Project Public License, version 1.3c
+%    or (at your option) any later version and/or
+% 2. under the GNU Public License, Version 2 or any later
+%    version published by the Free Software Foundation.
+
+
+\ProvidesPackage{beamerthemeUAS}
+\NeedsTeXFormat{LaTeX2e}
+
+\RequirePackage{tikz}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{calc}
+
+\RequirePackage{tcolorbox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Settings / Feature Toggles %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\uaslogovar{rgb} % which logo to use (negativ, grau, rpg)
+\def\uastitlelogovar{negativ} % same but for the titlepage
+
+\def\uaswhichblockdesign{4} % 0-8 specifies the title slopes in blocks
+
+\def\uashandoutsimplebackground{1} % switch decorations off in handout mode
+
+\def\uasusefonts{1}
+
+\beamertemplatenavigationsymbolsempty % get rid of navigation bar
+
+%%%%%%%%%%%%%%%%%
+% Screen Colors %
+%%%%%%%%%%%%%%%%%
+
+\RequirePackage{xcolor}
+
+% Farbwelt 1
+\definecolor{UAS-FW1-fg1}{HTML}{ff91ec} % font
+\definecolor{UAS-FW1-bg1}{HTML}{621b76} % background
+\definecolor{UAS-FW1-fg2}{HTML}{144d96} % call to action
+\definecolor{UAS-FW1-bg2}{HTML}{773a8e} % background portrait
+\definecolor{UAS-FW1-bg3}{HTML}{481457} % background Instagram
+\definecolor{UAS-FW1-a}{HTML}{ff91ec}   % triangle A
+\definecolor{UAS-FW1-b}{HTML}{e4e895}   % triangle B
+\definecolor{UAS-FW1-c}{HTML}{3a72ba}   % triangle C
+\definecolor{UAS-FW1-d}{HTML}{4880e8}   % triangle D
+\definecolor{UAS-FW1-pin}{HTML}{c74d17} % pin
+
+\definecolor{UAS-FW2-fg1}{HTML}{ffff00}
+\definecolor{UAS-FW2-bg1}{HTML}{65294d}
+\definecolor{UAS-FW2-fg2}{HTML}{144d96}
+\definecolor{UAS-FW2-bg2}{HTML}{8f2755}
+\definecolor{UAS-FW2-bg3}{HTML}{5b1b41}
+\definecolor{UAS-FW2-a}{HTML}{77a53a}
+\definecolor{UAS-FW2-b}{HTML}{04ffb9}
+\definecolor{UAS-FW2-c}{HTML}{3a72ba}
+\definecolor{UAS-FW2-d}{HTML}{5ea1ff}
+\definecolor{UAS-FW2-pin}{HTML}{d91e79}
+
+\definecolor{UAS-FW3-fg1}{HTML}{ffff00}
+\definecolor{UAS-FW3-bg1}{HTML}{806d00}
+\definecolor{UAS-FW3-fg2}{HTML}{0041bd}
+\definecolor{UAS-FW3-bg2}{HTML}{8c7e3d}
+\definecolor{UAS-FW3-bg3}{HTML}{755a00}
+\definecolor{UAS-FW3-a}{HTML}{ffcf58}
+\definecolor{UAS-FW3-b}{HTML}{77a53a}
+\definecolor{UAS-FW3-c}{HTML}{481457}
+\definecolor{UAS-FW3-d}{HTML}{7b31ab}
+\definecolor{UAS-FW3-pin}{HTML}{5c287e}
+
+\definecolor{UAS-FW4-fg1}{HTML}{00ffff}
+\definecolor{UAS-FW4-bg1}{HTML}{621b76}
+\definecolor{UAS-FW4-fg2}{HTML}{0041bd}
+\definecolor{UAS-FW4-bg2}{HTML}{7f398e}
+\definecolor{UAS-FW4-bg3}{HTML}{481457}
+\definecolor{UAS-FW4-a}{HTML}{00ffff}
+\definecolor{UAS-FW4-b}{HTML}{e4e895}
+\definecolor{UAS-FW4-c}{HTML}{69344c}
+\definecolor{UAS-FW4-d}{HTML}{e07272}
+\definecolor{UAS-FW4-pin}{HTML}{11807d}
+
+\definecolor{UAS-FW5-fg1}{HTML}{00ff7d}
+\definecolor{UAS-FW5-bg1}{HTML}{144d96}
+\definecolor{UAS-FW5-fg2}{HTML}{d91e79}
+\definecolor{UAS-FW5-bg2}{HTML}{005fa6}
+\definecolor{UAS-FW5-bg3}{HTML}{003b76}
+\definecolor{UAS-FW5-a}{HTML}{0090a6}
+\definecolor{UAS-FW5-b}{HTML}{7e287e}
+\definecolor{UAS-FW5-c}{HTML}{227b37}
+\definecolor{UAS-FW5-d}{HTML}{007973}
+\definecolor{UAS-FW5-pin}{HTML}{d91e79}
+
+\definecolor{UAS-FW6-fg1}{HTML}{ff91ec}
+\definecolor{UAS-FW6-bg1}{HTML}{0b504d}
+\definecolor{UAS-FW6-fg2}{HTML}{9448e0}
+\definecolor{UAS-FW6-bg2}{HTML}{093d39}
+\definecolor{UAS-FW6-bg3}{HTML}{2e6b6f}
+\definecolor{UAS-FW6-a}{HTML}{d46e00}
+\definecolor{UAS-FW6-b}{HTML}{ffa5c2}
+\definecolor{UAS-FW6-c}{HTML}{8039ba}
+\definecolor{UAS-FW6-d}{HTML}{9448e0}
+\definecolor{UAS-FW6-pin}{HTML}{007abd}
+
+%%%%%%%%%%%%%%%%
+% Print Colors %
+%%%%%%%%%%%%%%%%
+
+\definecolor{UAS-FW1-P-bg1}{cmyk}{0.74,1,0,0}
+\definecolor{UAS-FW1-P-fg1}{cmyk}{0,0.44,2,0}
+\definecolor{UAS-FW1-P-fg2}{cmyk}{1,0.7,0,0}
+\definecolor{UAS-FW1-P-a}{cmyk}{0,0.7,0,0}
+\definecolor{UAS-FW1-P-b}{cmyk}{0,0.42,0.55,0}
+\definecolor{UAS-FW1-P-c}{cmyk}{1,0.5,0,0}
+\definecolor{UAS-FW1-P-d}{cmyk}{0.76,0.38,0,0}
+\definecolor{UAS-FW1-P-pin}{cmyk}{0.19,0.88,1,0}
+\definecolor{UAS-FW1-P-bg2}{cmyk}{0.60,0.80,0,0}
+
+\definecolor{UAS-FW2-P-bg1}{cmyk}{0.65,1,0.5,0.14}
+\definecolor{UAS-FW2-P-fg1}{cmyk}{0,0,0.62,0}
+\definecolor{UAS-FW2-P-fg2}{cmyk}{1,0.7,0,0}
+\definecolor{UAS-FW2-P-a}{cmyk}{0.63,0.52,1,0}
+\definecolor{UAS-FW2-P-b}{cmyk}{0.62,0,0.65,0}
+\definecolor{UAS-FW2-P-c}{cmyk}{1,0.5,0,0}
+\definecolor{UAS-FW2-P-d}{cmyk}{0.65,0,0.06,0}
+\definecolor{UAS-FW2-P-pin}{cmyk}{0.1,1,0,0}
+\definecolor{UAS-FW2-P-bg2}{cmyk}{0.4,0.85,0.35,0.1}
+
+\definecolor{UAS-FW3-P-bg1}{cmyk}{0.68,0.58,1,0}
+\definecolor{UAS-FW3-P-fg1}{cmyk}{0,0,0.85,0}
+\definecolor{UAS-FW3-P-fg2}{cmyk}{1,0.33,0,0}
+\definecolor{UAS-FW3-P-a}{cmyk}{0.1,0.07,0.71,0}
+\definecolor{UAS-FW3-P-b}{cmyk}{0.57,0.11,0.73,0}
+\definecolor{UAS-FW3-P-c}{cmyk}{0.76,1,0,0}
+\definecolor{UAS-FW3-P-d}{cmyk}{0.57,1,0,0}
+\definecolor{UAS-FW3-P-pin}{cmyk}{0.76,1,0,0}
+\definecolor{UAS-FW3-P-bg2}{cmyk}{0.58,0.49,0.85,0}
+
+\definecolor{UAS-FW4-P-bg1}{cmyk}{0.74,1,0,0}
+\definecolor{UAS-FW4-P-fg1}{cmyk}{0.52,0,0.06,0}
+\definecolor{UAS-FW4-P-fg2}{cmyk}{0.74,1,0,0}
+\definecolor{UAS-FW4-P-a}{cmyk}{0.65,0,0.06,0}
+\definecolor{UAS-FW4-P-b}{cmyk}{0,0,0.5,0}
+\definecolor{UAS-FW4-P-c}{cmyk}{0.65,1,0.5,0.14}
+\definecolor{UAS-FW4-P-d}{cmyk}{0,0.74,0.38,0}
+\definecolor{UAS-FW4-P-pin}{cmyk}{1,0,0.65,0.18}
+\definecolor{UAS-FW4-P-bg2}{cmyk}{0.6,0.8,0,0}
+
+\definecolor{UAS-FW5-P-bg1}{cmyk}{1,0.7,0,0}
+\definecolor{UAS-FW5-P-fg1}{cmyk}{0.48,0,0.26,0}
+\definecolor{UAS-FW5-P-fg2}{cmyk}{1,0.7,0,0}
+\definecolor{UAS-FW5-P-a}{cmyk}{1,0.06,0.33,0}
+\definecolor{UAS-FW5-P-b}{cmyk}{0.57,1,0,0}
+\definecolor{UAS-FW5-P-c}{cmyk}{0.79,0.4,0.75,0}
+\definecolor{UAS-FW5-P-d}{cmyk}{1,0.6,0.65,0}
+\definecolor{UAS-FW5-P-pin}{cmyk}{0.1,1,0,0}
+\definecolor{UAS-FW5-P-bg2}{cmyk}{1,0.5,0,0}
+
+\definecolor{UAS-FW6-P-bg1}{cmyk}{1,0.6,0.65,0}
+\definecolor{UAS-FW6-P-fg1}{cmyk}{0,0.42,0,0}
+\definecolor{UAS-FW6-P-fg2}{cmyk}{0.57,1,0,0}
+\definecolor{UAS-FW6-P-a}{cmyk}{0,0.7,1,0}
+\definecolor{UAS-FW6-P-b}{cmyk}{0,0.45,0.38,0}
+\definecolor{UAS-FW6-P-c}{cmyk}{0.76,1,0,0}
+\definecolor{UAS-FW6-P-d}{cmyk}{0.57,1,0,0}
+\definecolor{UAS-FW6-P-pin}{cmyk}{1,0.33,0,0}
+\definecolor{UAS-FW6-P-bg2}{cmyk}{0.87,0.57,0.57,0}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Color Aliases For Farbwelt Selection %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\setFarbweltColorAlias}{
+  \colorlet{UAS-text}{UAS-1}
+  \colorlet{UAS-fg1}{UAS-1}
+  \colorlet{UAS-fg}{UAS-1}
+  \colorlet{UAS-bg}{UAS-2}
+  \colorlet{UAS-bg1}{UAS-2}
+  \colorlet{UAS-c2a}{UAS-3}
+  \colorlet{UAS-fg2}{UAS-3}
+  \colorlet{UAS-bg2}{UAS-4}
+  \colorlet{UAS-bg3}{UAS-5}
+  \colorlet{UAS-a}{UAS-6}
+  \colorlet{UAS-b}{UAS-7}
+  \colorlet{UAS-c}{UAS-8}
+  \colorlet{UAS-d}{UAS-9}
+  \colorlet{UAS-e}{UAS-2}
+  \colorlet{UAS-pin}{UAS-10}
+}
+
+\newcommand{\setFarbweltPrintA}{
+  \colorlet{UAS-1}{UAS-FW1-P-fg1}
+  \colorlet{UAS-2}{UAS-FW1-P-bg1}
+  \colorlet{UAS-3}{UAS-FW1-P-fg2}
+  \colorlet{UAS-4}{UAS-FW1-P-bg2}
+  \colorlet{UAS-5}{UAS-FW1-P-bg2}
+  \colorlet{UAS-6}{UAS-FW1-P-a}
+  \colorlet{UAS-7}{UAS-FW1-P-b}
+  \colorlet{UAS-8}{UAS-FW1-P-c}
+  \colorlet{UAS-9}{UAS-FW1-P-d}
+  \colorlet{UAS-10}{UAS-FW1-P-pin}
+  \setFarbweltColorAlias
+}
+\newcommand{\setFarbweltPrintB}{
+  \colorlet{UAS-1}{UAS-FW2-P-fg1}
+  \colorlet{UAS-2}{UAS-FW2-P-bg1}
+  \colorlet{UAS-3}{UAS-FW2-P-fg2}
+  \colorlet{UAS-4}{UAS-FW2-P-bg2}
+  \colorlet{UAS-5}{UAS-FW2-P-bg2}
+  \colorlet{UAS-6}{UAS-FW2-P-a}
+  \colorlet{UAS-7}{UAS-FW2-P-b}
+  \colorlet{UAS-8}{UAS-FW2-P-c}
+  \colorlet{UAS-9}{UAS-FW2-P-d}
+  \colorlet{UAS-10}{UAS-FW2-P-pin}
+  \setFarbweltColorAlias
+}
+\newcommand{\setFarbweltPrintC}{
+  \colorlet{UAS-1}{UAS-FW3-P-fg1}
+  \colorlet{UAS-2}{UAS-FW3-P-bg1}
+  \colorlet{UAS-3}{UAS-FW3-P-fg2}
+  \colorlet{UAS-4}{UAS-FW3-P-bg2}
+  \colorlet{UAS-5}{UAS-FW3-P-bg2}
+  \colorlet{UAS-6}{UAS-FW3-P-a}
+  \colorlet{UAS-7}{UAS-FW3-P-b}
+  \colorlet{UAS-8}{UAS-FW3-P-c}
+  \colorlet{UAS-9}{UAS-FW3-P-d}
+  \colorlet{UAS-10}{UAS-FW3-P-pin}
+  \setFarbweltColorAlias
+}
+\newcommand{\setFarbweltPrintD}{
+  \colorlet{UAS-1}{UAS-FW4-P-fg1}
+  \colorlet{UAS-2}{UAS-FW4-P-bg1}
+  \colorlet{UAS-3}{UAS-FW4-P-fg2}
+  \colorlet{UAS-4}{UAS-FW4-P-bg2}
+  \colorlet{UAS-5}{UAS-FW4-P-bg2}
+  \colorlet{UAS-6}{UAS-FW4-P-a}
+  \colorlet{UAS-7}{UAS-FW4-P-b}
+  \colorlet{UAS-8}{UAS-FW4-P-c}
+  \colorlet{UAS-9}{UAS-FW4-P-d}
+  \colorlet{UAS-10}{UAS-FW4-P-pin}
+  \setFarbweltColorAlias
+}
+\newcommand{\setFarbweltPrintE}{
+  \colorlet{UAS-1}{UAS-FW5-P-fg1}
+  \colorlet{UAS-2}{UAS-FW5-P-bg1}
+  \colorlet{UAS-3}{UAS-FW5-P-fg2}
+  \colorlet{UAS-4}{UAS-FW5-P-bg2}
+  \colorlet{UAS-5}{UAS-FW5-P-bg2}
+  \colorlet{UAS-6}{UAS-FW5-P-a}
+  \colorlet{UAS-7}{UAS-FW5-P-b}
+  \colorlet{UAS-8}{UAS-FW5-P-c}
+  \colorlet{UAS-9}{UAS-FW5-P-d}
+  \colorlet{UAS-10}{UAS-FW5-P-pin}
+  \setFarbweltColorAlias
+}
+\newcommand{\setFarbweltPrintF}{
+  \colorlet{UAS-1}{UAS-FW6-P-fg1}
+  \colorlet{UAS-2}{UAS-FW6-P-bg1}
+  \colorlet{UAS-3}{UAS-FW6-P-fg2}
+  \colorlet{UAS-4}{UAS-FW6-P-bg2}
+  \colorlet{UAS-5}{UAS-FW6-P-bg2}
+  \colorlet{UAS-6}{UAS-FW6-P-a}
+  \colorlet{UAS-7}{UAS-FW6-P-b}
+  \colorlet{UAS-8}{UAS-FW6-P-c}
+  \colorlet{UAS-9}{UAS-FW6-P-d}
+  \colorlet{UAS-10}{UAS-FW6-P-pin}
+  \setFarbweltColorAlias
+}
+
+\newcommand{\setFarbweltScreenA}{
+  \colorlet{UAS-1}{UAS-FW1-fg1}
+  \colorlet{UAS-2}{UAS-FW1-bg1}
+  \colorlet{UAS-3}{UAS-FW1-fg2}
+  \colorlet{UAS-4}{UAS-FW1-bg2}
+  \colorlet{UAS-5}{UAS-FW1-bg3}
+  \colorlet{UAS-6}{UAS-FW1-a}
+  \colorlet{UAS-7}{UAS-FW1-b}
+  \colorlet{UAS-8}{UAS-FW1-c}
+  \colorlet{UAS-9}{UAS-FW1-d}
+  \colorlet{UAS-10}{UAS-FW1-pin}
+  \setFarbweltColorAlias
+}
+\newcommand{\setFarbweltScreenB}{
+  \colorlet{UAS-1}{UAS-FW2-fg1}
+  \colorlet{UAS-2}{UAS-FW2-bg1}
+  \colorlet{UAS-3}{UAS-FW2-fg2}
+  \colorlet{UAS-4}{UAS-FW2-bg2}
+  \colorlet{UAS-5}{UAS-FW2-bg3}
+  \colorlet{UAS-6}{UAS-FW2-a}
+  \colorlet{UAS-7}{UAS-FW2-b}
+  \colorlet{UAS-8}{UAS-FW2-c}
+  \colorlet{UAS-9}{UAS-FW2-d}
+  \colorlet{UAS-10}{UAS-FW2-pin}
+  \setFarbweltColorAlias
+}
+\newcommand{\setFarbweltScreenC}{
+  \colorlet{UAS-1}{UAS-FW3-fg1}
+  \colorlet{UAS-2}{UAS-FW3-bg1}
+  \colorlet{UAS-3}{UAS-FW3-fg2}
+  \colorlet{UAS-4}{UAS-FW3-bg2}
+  \colorlet{UAS-5}{UAS-FW3-bg3}
+  \colorlet{UAS-6}{UAS-FW3-a}
+  \colorlet{UAS-7}{UAS-FW3-b}
+  \colorlet{UAS-8}{UAS-FW3-c}
+  \colorlet{UAS-9}{UAS-FW3-d}
+  \colorlet{UAS-10}{UAS-FW3-pin}
+  \setFarbweltColorAlias
+}
+\newcommand{\setFarbweltScreenD}{
+  \colorlet{UAS-1}{UAS-FW4-fg1}
+  \colorlet{UAS-2}{UAS-FW4-bg1}
+  \colorlet{UAS-3}{UAS-FW4-fg2}
+  \colorlet{UAS-4}{UAS-FW4-bg2}
+  \colorlet{UAS-5}{UAS-FW4-bg3}
+  \colorlet{UAS-6}{UAS-FW4-a}
+  \colorlet{UAS-7}{UAS-FW4-b}
+  \colorlet{UAS-8}{UAS-FW4-c}
+  \colorlet{UAS-9}{UAS-FW4-d}
+  \colorlet{UAS-10}{UAS-FW4-pin}
+  \setFarbweltColorAlias
+}
+\newcommand{\setFarbweltScreenE}{
+  \colorlet{UAS-1}{UAS-FW5-fg1}
+  \colorlet{UAS-2}{UAS-FW5-bg1}
+  \colorlet{UAS-3}{UAS-FW5-fg2}
+  \colorlet{UAS-4}{UAS-FW5-bg2}
+  \colorlet{UAS-5}{UAS-FW5-bg3}
+  \colorlet{UAS-6}{UAS-FW5-a}
+  \colorlet{UAS-7}{UAS-FW5-b}
+  \colorlet{UAS-8}{UAS-FW5-c}
+  \colorlet{UAS-9}{UAS-FW5-d}
+  \colorlet{UAS-10}{UAS-FW5-pin}
+  \setFarbweltColorAlias
+}
+\newcommand{\setFarbweltScreenF}{
+  \colorlet{UAS-1}{UAS-FW6-fg1}
+  \colorlet{UAS-2}{UAS-FW6-bg1}
+  \colorlet{UAS-3}{UAS-FW6-fg2}
+  \colorlet{UAS-4}{UAS-FW6-bg2}
+  \colorlet{UAS-5}{UAS-FW6-bg3}
+  \colorlet{UAS-6}{UAS-FW6-a}
+  \colorlet{UAS-7}{UAS-FW6-b}
+  \colorlet{UAS-8}{UAS-FW6-c}
+  \colorlet{UAS-9}{UAS-FW6-d}
+  \colorlet{UAS-10}{UAS-FW6-pin}
+  \setFarbweltColorAlias
+}
+\setFarbweltPrintA
+
+%%%%%%%%%%%
+% OPTIONS %
+%%%%%%%%%%%
+
+\setFarbweltScreenE% default
+
+\DeclareOption{print1}{\setFarbweltPrintA}
+\DeclareOption{print2}{\setFarbweltPrintB}
+\DeclareOption{print3}{\setFarbweltPrintC}
+\DeclareOption{print4}{\setFarbweltPrintD}
+\DeclareOption{print5}{\setFarbweltPrintE}
+\DeclareOption{print6}{\setFarbweltPrintF}
+\DeclareOption{screen1}{\setFarbweltScreenA}
+\DeclareOption{screen2}{\setFarbweltScreenB}
+\DeclareOption{screen3}{\setFarbweltScreenC}
+\DeclareOption{screen4}{\setFarbweltScreenD}
+\DeclareOption{screen5}{\setFarbweltScreenE}
+\DeclareOption{screen6}{\setFarbweltScreenF}
+
+\DeclareOption{normalblocks}{\def\uaswhichblockdesign{0}}
+
+\DeclareOption{handoutcolors}{\def\uashandoutsimplebackground{0}}
+
+\DeclareOption{nofonts}{\def\uasusefonts{0}}
+
+\newif\iftitlewhite
+\titlewhitefalse
+\DeclareOption{titlewhite}{\titlewhitetrue}
+
+\ProcessOptions\relax
+
+%%%%%%%%%%%%%%%%%%%%%
+% Beamer Font Theme %
+%%%%%%%%%%%%%%%%%%%%%
+
+
+\ifnum\uasusefonts>0
+  \RequirePackage{iftex}
+  \ifluatex\else\ifxetex\else
+      \PackageWarning{beamerthemeUAS}{
+        Tried to use fonts without luaTeX or XeTeX.
+        Use  _a different compiler_ to enable ttf font support.
+        CI compliant fonts will be deactivated.
+      }
+      \def\uasusefonts{0}
+  \fi\fi
+\fi
+
+\ifnum\uasusefonts>0
+  \RequirePackage{fontspec}
+  \defaultfontfeatures[Space Grotesk]{
+    Path=./assetsUAS/fonts/,
+    Extension=.ttf,
+    UprightFont=SpaceGrotesk-Regular,
+    BoldFont=SpaceGrotesk-Bold,
+  }
+  \defaultfontfeatures[Aptos Light]{
+    Path=./assetsUAS/fonts/,
+    Extension=.ttf,
+    UprightFont=aptos-light,
+    BoldFont=aptos,
+    ItalicFont=aptos-light-italic,
+  }
+  \defaultfontfeatures[Aptos]{
+    Path=./assetsUAS/fonts/,
+    Extension=.ttf,
+    UprightFont=aptos,
+    BoldFont=aptos-bold,
+    ItalicFont=aptos-italic,
+  }
+  \setsansfont{Aptos}
+
+  \newfontfamily\spacegrotesk{Space Grotesk}
+
+  \setbeamerfont{title}{family=\spacegrotesk,size={\fontsize{32}{36}}}
+  \setbeamerfont{frametitle}{family=\spacegrotesk,size={\fontsize{20}{24}}}
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Color Theme %
+%%%%%%%%%%%%%%%%%%%%%%
+
+\setbeamercolor{structure}{fg=UAS-fg2}
+
+
+\setbeamercolor{palette primary}{fg=UAS-a}
+\setbeamercolor{palette secondary}{fg=UAS-b}
+\setbeamercolor{palette tertiary}{fg=UAS-c}
+\setbeamercolor{palette quaternary}{fg=UAS-d}
+
+\setbeamercolor{palette sidebar primary}{fg=UAS-a}
+\setbeamercolor{palette sidebar secondary}{fg=UAS-b}
+\setbeamercolor{palette sidebar tertiary}{fg=UAS-c}
+\setbeamercolor{palette sidebar quaternary}{fg=UAS-d}
+
+
+
+\setbeamercolor{title}{bg=,fg=UAS-fg1}
+\setbeamercolor{frametitle}{bg=,fg=UAS-bg3}
+\setbeamercolor{footline}{bg=,fg=UAS-bg3}
+\setbeamercolor{normal text}{bg=,fg=UAS-bg3}
+%\setbeamercolor{titlefooter}{fg=white,bg=black}
+%\setbeamercolor{frametitle right}{bg=black}
+%\setbeamercolor{caption name}{fg=black}
+
+
+%\setbeamercolor{title}{bg=,fg=UAS-fg} % XXX TODO: check frame titles
+%\setbeamercolor{frametitle}{bg=,fg=UAS-fg}
+%\setbeamercolor{titlefooter}{fg=white,bg=UAS-fg}
+%\setbeamercolor{footer}{fg=black,bg=white}
+%\setbeamercolor{frametitle right}{bg=UAS-fg}
+%\setbeamercolor{caption name}{fg=UAS-fg}
+
+
+%\setbeamercolor{section number projected}{bg=UAS-bg,fg=UAS-fg}
+%\setbeamercolor{section in toc}{fg=UAS-fg}
+
+
+\setbeamercolor{block title}{bg=UAS-bg1,fg=UAS-fg1}
+\setbeamercolor{block body}{bg=UAS-bg1!30}
+
+\setbeamercolor{block title alerted}{fg=black,bg=UAS-pin}
+\setbeamercolor{block body alerted}{bg=UAS-pin!30}
+\setbeamercolor{alerted text}{fg=UAS-pin}
+
+\setbeamercolor{block title example}{fg=black,bg=UAS-a} 
+\setbeamercolor{block body example}{bg=UAS-a!30}
+\setbeamercolor{example text}{fg=UAS-a}
+
+
+
+%\beamertemplatenavigationsymbolsempty
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Common Graphics Elements %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{pgf}
+\pgfmathsetseed{42}%
+\newcommand{\uasrandomdir}{%
+  \pgfmathsetmacro{\therandomnumber}{int(random(0,5)*60)}%
+  \therandomnumber%
+}%
+
+\tikzset{
+  triangle/.style={
+    fill=#1,
+    %draw=#1,
+    %line width=0.1px, %fixes overlap but
+    regular polygon,
+    regular polygon sides=3,
+    outer sep=0em,
+    inner sep=0em,
+    anchor=corner 1,
+    minimum size=0.05\pdfpageheight,
+  },
+  trapbar_common/.style={
+    trapezium,
+    trapezium right angle=0,
+    trapezium left angle=0,
+    fill=UAS-bg,
+    text=UAS-fg,
+    outer sep=0em, align=left,
+  },
+  trapbar0/.style={trapbar_common}, % |___|
+  trapbar1/.style={trapbar_common,trapezium right angle=120}, % |___/
+  trapbar2/.style={trapbar_common,trapezium right angle=60},  % |___\ 
+  trapbar3/.style={trapbar_common,trapezium left angle=120},  % \___|
+  trapbar4/.style={trapbar_common,trapezium left angle=60},   % /___|
+  trapbar5/.style={trapbar_common,trapezium left angle=60,trapezium right angle=60},    % /___\
+  trapbar6/.style={trapbar_common,trapezium left angle=120,trapezium right angle=120},  % \___/
+  trapbar7/.style={trapbar_common,trapezium left angle=60,trapezium right angle=120},   % /___/
+  trapbar8/.style={trapbar_common,trapezium left angle=120,trapezium right angle=60},   % \___\
+}
+
+\newcommand{\FraUASlogo}[3]{
+  % #1 anchor (e.g. north west / south / ..)
+  % #2 size (width)
+  % #3 type: rgb | grau | negativ
+  \begin{tikzpicture}[remember picture, overlay]
+    \node[draw=none,fill=none, anchor=#1, outer sep=0.04\pdfpageheight] at (current page.#1)
+    {\includegraphics[width=#2]{./assetsUAS/logos/FRA-UAS_Logo_#3.pdf}};
+  \end{tikzpicture}
+}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Graphics  and Backgrounds %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+
+
+
+% TODO: more and simpler background images
+% BG IMAGES %
+\newcommand{\farbweltenFullBackgroundB}{
+  \begin{tikzpicture}[remember picture, overlay]
+    \fill[color=UAS-bg2] (current page.north east) -- (current page.north west) -- (current page.south west) -- (current page.south east);
+    \node (N1) at ($ (current page.south east) $) {};
+    \node[triangle=UAS-bg3,minimum size=1.4\pdfpageheight,rotate=180] (T0) at (N1) {}; % right main triangle
+
+%    \node[triangle=UAS-bg1,minimum size=1.15\pdfpageheight,rotate=60] (T1) at ($ (current page.north) + (-.4\pdfpagewidth,0.05\pdfpageheight) $) {};
+    \node[triangle=UAS-bg1,minimum size=1.15\pdfpageheight,rotate=-60] (T1) at (T0.corner 3) {};
+    \node[triangle=UAS-bg3,minimum size=1.8\pdfpageheight,rotate=-120] (T2) at ($ (T1.corner 3) $) {};
+    \node[triangle=UAS-bg1,minimum size=1.8\pdfpageheight,rotate=-60] (T3) at ($ (T1.corner 3) $) {};
+    \node[triangle=UAS-bg3,minimum size=0.3\pdfpageheight] (T4) at ($ (T1.corner 3) $) {};
+%
+%    \node[triangle=UAS-bg3,minimum size=2.\pdfpageheight,rotate=60] (T5) at ($ (T1.corner 3) $) {}; % right main triangle
+%    \node[triangle=UAS-c2a,minimum size=0.15\pdfpageheight,rotate=180] (T8) at (T5.side 1) {};
+
+    \node[triangle=UAS-c,minimum size=0.2\pdfpageheight,rotate=60] (T6) at ($ (T1.corner 3) + (0.2\pdfpageheight,0) $) {};
+
+%    \node[triangle=UAS-c2a,minimum size=0.15\pdfpageheight,rotate=60] (T8) at (T5.side 3) {};
+%    \node[triangle=UAS-fg1,minimum size=0.25\pdfpageheight,rotate=-120] (T9) at (T8.corner 3) {};
+    \node[triangle=UAS-fg1,minimum size=0.25\pdfpageheight,rotate=0] (T7) at (T0.side 3) {};
+    \node[triangle=UAS-c2a,minimum size=0.15\pdfpageheight,rotate=60] (T8) at (T7.corner 3) {};
+  \end{tikzpicture}
+  \FraUASlogo{north east}{3.cm}{\uastitlelogovar}
+}
+
+\newcommand{\farbweltenHalfBackgroundA}{
+  \begin{tikzpicture}[remember picture, overlay]
+    \node[triangle=UAS-bg1,draw=UAS-bg2,minimum size=1.6\pdfpageheight] (T1) at ($ (current page.north west)!0.85!(current page.south) $) {};
+    \node[triangle=UAS-bg2,draw=UAS-bg2,minimum size=1.6\pdfpageheight,rotate=-60] (T2) at (T1.corner 1) {};
+    \node[triangle=UAS-bg1,draw=UAS-bg2,minimum size=1.6\pdfpageheight,rotate=-120] (T2) at (T1.corner 1) {};
+    \node[triangle=UAS-bg2,draw=UAS-bg2,minimum size=1.6\pdfpageheight,rotate=-180] (T2) at (T1.corner 1) {};
+  \end{tikzpicture}
+  \FraUASlogo{north west}{3.5cm}{negativ}
+}
+
+\newcommand{\farbweltenBorderDecorationsLeftA}{
+  \begin{tikzpicture}[remember picture, overlay]
+    \node (N1) at ($ (current page.west)!0.5!(current page.south west) $) {};
+    \node[triangle=black!5,scale=8,rotate=0] at (N1) {};
+    \node[triangle=black!5,scale=4,rotate=180]at (N1) {};
+  \end{tikzpicture}
+}
+
+\newcommand{\farbweltenBorderDecorationsRightA}{
+  \begin{tikzpicture}[remember picture, overlay]
+    \node (N1) at ($ (current page.east)!0.3!(current page.south east) $) {};
+    \node[triangle=black!5,scale=30,rotate=180] at (N1) {};
+  \end{tikzpicture}
+}
+
+\newcommand{\farbweltenTitleBackground}{
+  \farbweltenFullBackgroundB
+}
+\newcommand{\farbweltenTitleBackgroundMinimal}{
+  \ifnum\uashandoutsimplebackground>0
+  \else
+    \farbweltenTitleBackground
+  \fi
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Theme Inner & Outer %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Blocks (Taken from beamerinnerthemedefault.sty)
+\newcommand{\uascommonblockbeginbeamertemplate}[3]{%
+  \par\vskip\medskipamount%
+  \usebeamercolor{#1}%
+  \begin{tikzpicture}%
+    \node[trapbar#3,minimum width=1.0045\hsize,text width=\hsize-3em,align=left,fill=bg,text=fg] {% FIXME why 1.0045
+      \usebeamerfont{#1}%
+      \smash[b]{\insertblocktitle}%
+    };%
+  \end{tikzpicture}%
+  \usebeamercolor{normal text}%
+  {\parskip0pt\par}%
+  \ifbeamercolorempty[bg]{#1}%
+  {}%
+  {\ifbeamercolorempty[bg]{#2}{}{\nointerlineskip\vskip-0.5pt}}%
+  \usebeamerfont{#2}%
+  \begin{beamercolorbox}[vmode,wd=\hsize,sep=0.75ex]{#2}%
+    \ifbeamercolorempty[bg]{#2}{\vskip-1.25ex}{\vskip-.75ex}\vbox{}%
+}
+\ifnum\uaswhichblockdesign>0
+  \defbeamertemplate{block begin}{UAS}
+  {\uascommonblockbeginbeamertemplate{block title}{block body}{\uaswhichblockdesign}}
+  \defbeamertemplate{block alerted begin}{UAS}
+  {\uascommonblockbeginbeamertemplate{block title alerted}{block body alerted}{\uaswhichblockdesign}}
+  \defbeamertemplate{block example begin}{UAS}
+  {\uascommonblockbeginbeamertemplate{block title example}{block body example}{\uaswhichblockdesign}}
+\fi
+
+
+\defbeamertemplate{frametitle}{UAS}{
+  \usebeamercolor{frametitle}
+  \usebeamerfont{frametitle}%
+  \usebeamercolor[fg]{frametitle}%
+  \vspace{1.em}\insertframetitle
+  \ifx\insertframesubtitle\@empty
+  \else
+    \usebeamerfont{framesubtitle}%
+    \usebeamercolor[fg]{framesubtitle}%
+    \insertframesubtitle%
+  \fi
+ }
+
+
+ \defbeamertemplate{title page}{UAS}{
+  \thispagestyle{empty}
+  \mode<beamer|second|trans>{\farbweltenTitleBackground}
+  \mode<handout|article>{\farbweltenTitleBackgroundMinimal}
+  \vbox{}
+  \vfill
+  \begingroup
+%    \centering
+    \begin{beamercolorbox}[sep=8pt]{title}
+      \iftitlewhite
+        \color{white}
+      \fi
+      \usebeamerfont{title}\inserttitle\par%
+      \ifx\insertsubtitle\@empty%
+      \else%
+        \vskip0.25em%
+        \usebeamerfont{subtitle}%\usebeamercolor[fg]{subtitle}
+           \insertsubtitle\par%
+      \fi%
+    \vskip4em\par
+%    \begin{beamercolorbox}[leftskip=8pt]{author}
+%      \usebeamerfont{author}%
+      \insertauthor\\
+%    \end{beamercolorbox}
+%    \begin{beamercolorbox}[leftskip=8pt]{institute}
+%      \usebeamerfont{institute}
+      \insertinstitute\\
+%    \end{beamercolorbox}
+%    \begin{beamercolorbox}[leftskip=8pt]{date}
+%      \usebeamerfont{date}
+      \insertdate
+%    \end{beamercolorbox}
+    \vskip0.5em
+    {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+    \end{beamercolorbox}%
+  \endgroup
+  \vfill 
+}
+
+
+
+\defbeamertemplate{footline}{UAS}{%
+  \usebeamercolor{footline}
+%  \begin{tikzpicture}[remember picture,overlay]
+%    \node[trapbar2,text=fg,anchor=bottom left corner, text width=\textwidth-2\baselineskip] at (current page.south west)
+%    \node[trapbar2,fill=bg!0.5!white,text=fg,anchor=bottom left corner, text width=\textwidth-2\baselineskip] at (current page.south west)
+    {
+      \hspace{2em}%
+      \usebeamerfont{author in head/foot}\insertshortauthor%
+%      \hfill
+     ~~|~~%
+      \usebeamerfont{title in head/foot}\insertshorttitle
+      \hfill
+      \usebeamerfont{date in head/foot}\insertframenumber{} / \inserttotalframenumber
+      \hspace{2em}%
+      \vspace{.5em}%
+    }%
+%  \end{tikzpicture}
+  \vskip0pt%
+}
+
+
+
+
+\defbeamertemplate{sidebar canvas left}{UAS}{
+  \mode<beamer|second|trans>{\farbweltenBorderDecorationsLeftA}
+}
+\defbeamertemplate{sidebar canvas right}{UAS}{
+  \mode<beamer|second|trans>{\farbweltenBorderDecorationsRightA}
+}
+\defbeamertemplate{logo}{UAS}{
+  \FraUASlogo{north east}{2.cm}{gray}
+}
+
+
+% Useful templates to define (taken from the beamer documentation)
+
+%background, 75
+%background canvas, 74
+%frametitle, 73
+%frametitle continuation, 58
+%logo, 72
+%navigation symbols, 72
+%note page, 197
+%page number in head/foot, 66
+%part page, 97
+%section page, 95
+%sidebar canvas left, 67
+%sidebar canvas right, 68
+%sidebar left, 66
+%sidebar right, 67
+%title, 91
+%title page, 91
+%titlegraphic, 91
+
+
+\setbeamertemplate{frametitle}[UAS]
+\setbeamertemplate{title page}[UAS]
+\setbeamertemplate{block begin}[UAS]
+\setbeamertemplate{block alerted begin}[UAS]
+\setbeamertemplate{block example begin}[UAS]
+\setbeamertemplate{sidebar canvas left}[UAS]
+\setbeamertemplate{sidebar canvas right}[UAS]
+\setbeamertemplate{logo}[UAS]
+\setbeamertemplate{footline}[UAS]
