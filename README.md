@@ -3,6 +3,9 @@
 LaTeX beamer theme “FrankfurtUniversity”
 ========================================
 
+Usage
+-----
+
 You can use this theme by including
 
     \usetheme{FrankfurtUAS}
@@ -16,6 +19,20 @@ or even easier
     \documentclass{FrankfurtUAS}
 
 The latter will also default to 16x9 aspect ratio and not 4x3.  As option you can choose your favorite color theme (screen[1–6]/print[1–6]).  See example for more details.  Another option is “titlewhite” if you prefere white title instead of main theme color.
+
+In order to use the correspondig fonts, your have to install Aptos and Space Grotesk fonts in your system AND use XeLaTeX!
+
+
+Installation
+------------
+
+To install you can either place .sty and .cls as well the all logos into your TeX project folder or copy these files here.
+
+For macOS:
+
+    ~/Library/texmf/tex/latex/beamer/
+
+Please help me and provide installation instruction for Linux and Windows if you use one of theme, so that I can provide it here as well.
 
 
 Revisions and Changes

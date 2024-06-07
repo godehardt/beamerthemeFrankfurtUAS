@@ -410,26 +410,26 @@
 
 \ifnum\uasusefonts>0
   \RequirePackage{fontspec}
-  \defaultfontfeatures[Space Grotesk]{
-    Path=./assetsUAS/fonts/,
-    Extension=.ttf,
-    UprightFont=SpaceGrotesk-Regular,
-    BoldFont=SpaceGrotesk-Bold,
-  }
-  \defaultfontfeatures[Aptos Light]{
-    Path=./assetsUAS/fonts/,
-    Extension=.ttf,
-    UprightFont=aptos-light,
-    BoldFont=aptos,
-    ItalicFont=aptos-light-italic,
-  }
-  \defaultfontfeatures[Aptos]{
-    Path=./assetsUAS/fonts/,
-    Extension=.ttf,
-    UprightFont=aptos,
-    BoldFont=aptos-bold,
-    ItalicFont=aptos-italic,
-  }
+%  \defaultfontfeatures[Space Grotesk]{
+%    Path=./assetsUAS/fonts/,
+%    Extension=.ttf,
+%    UprightFont=SpaceGrotesk-Regular,
+%    BoldFont=SpaceGrotesk-Bold,
+%  }
+%  \defaultfontfeatures[Aptos Light]{
+%    Path=./assetsUAS/fonts/,
+%    Extension=.ttf,
+%    UprightFont=aptos-light,
+%    BoldFont=aptos,
+%    ItalicFont=aptos-light-italic,
+%  }
+%  \defaultfontfeatures[Aptos]{
+%    Path=./assetsUAS/fonts/,
+%    Extension=.ttf,
+%    UprightFont=aptos,
+%    BoldFont=aptos-bold,
+%    ItalicFont=aptos-italic,
+%  }
   \setsansfont{Aptos}
 
   \newfontfamily\spacegrotesk{Space Grotesk}
@@ -542,7 +542,8 @@
   % #3 type: rgb | grau | negativ
   \begin{tikzpicture}[remember picture, overlay]
     \node[draw=none,fill=none, anchor=#1, outer sep=0.04\pdfpageheight] at (current page.#1)
-    {\includegraphics[width=#2]{./assetsUAS/logos/FRA-UAS_Logo_#3.pdf}};
+    {\includegraphics[width=#2]{%./assetsUAS/logos/
+    	FRA-UAS_Logo_#3.pdf}};
   \end{tikzpicture}
 }
 
