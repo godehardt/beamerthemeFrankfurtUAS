@@ -3,6 +3,8 @@
 LaTeX beamer theme “FrankfurtUAS”
 ========================================
 
+![Example title page](./example/ExampleFrankfurtUAS.png)
+
 Usage
 -----
 
@@ -13,6 +15,10 @@ You can use this theme by including
 or even easier
 
     \documentclass{FrankfurtUAS}
+
+which is equivalent to
+
+    \usetheme[aspectratio=169]{FrankfurtUAS}
 
 The latter will also default to 16x9 aspect ratio and not 4x3.
 
@@ -27,6 +33,8 @@ To pick and choose a specific color theme (screen[1–6]/print[1–6]).
     \usetheme[screen5]{FrankfurtUAS}
 
 Another option is “titlewhite” if you prefere white title instead of main theme color.
+
+All this option can also be selected using the `\documentclass`.
 
 
 Installation
